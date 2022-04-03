@@ -11,8 +11,8 @@ namespace Wheels_and_Bills.Infrastructure.Commands.Base
             remove => CommandManager.RequerySuggested -= value;
         }
 
-        public bool CanExecute(object parameter) { throw new NotImplementedException(); }
+        public abstract bool CanExecute(object parameter);
 
-        public void Execute(object parameter) { throw new NotImplementedException(); }       
+        public abstract void Execute(object parameter);
     }
 }
