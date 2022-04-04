@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Cars\car.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Cars\car.png" />
     <Resource Include="Fonts\Inter-VariableFont_slnt,wght.ttf" />
   </ItemGroup>
 
