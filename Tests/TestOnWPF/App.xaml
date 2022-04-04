@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:TestOnWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="InterFont">
+            <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/Inter/#Inter"/>
+        </Style>
     </Application.Resources>
 </Application>

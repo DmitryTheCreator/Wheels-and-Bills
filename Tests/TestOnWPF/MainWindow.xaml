@@ -4,9 +4,49 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestOnWPF"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        mc:Ignorable="d"        
+        Height="800" Width="1200"
+        WindowStyle="None"    
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+    <Border Background="#E6D5B8"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-    </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" 
+                    Grid.ColumnSpan="2"
+                    Background="#1B1A17">
+                <TextBlock Text="Good Font"
+                           Foreground="White"
+                           FontSize="50"
+                           Style="{StaticResource ResourceKey=InterFont}"
+                           />
+                
+            </Border>
+
+            <Border Grid.Row="1" 
+                    Grid.Column="0"
+                    Background="#F0A500">
+                <TextBlock Text="Правда красиво"
+                           Foreground="White"
+                           FontSize="50"
+                           
+                           />
+            </Border>
+        </Grid>
+        
+        
+
+    </Border>
 </Window>
