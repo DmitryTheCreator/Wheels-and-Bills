@@ -62,22 +62,23 @@
                             <Border Grid.Column="0"
                                     Grid.ColumnSpan="2"                                                                
                                     Height="200" 
-                                    CornerRadius="40">
+                                    CornerRadius="20"
+                                    Background="White">
                                 
-                                <Border.Background>
+                                <!--<Border.Background>
                                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                         <GradientStop Color="#E8E9ED" Offset="0."/>
                                         <GradientStop Color="#C0C3CC" Offset="1"/>
                                     </LinearGradientBrush>
-                                </Border.Background>
+                                </Border.Background>-->
 
                                 <Image Grid.Column="1"
                                        Margin="150,0,-150,0"
                                        Width="350" 
                                        RenderOptions.BitmapScalingMode="HighQuality"                                                                     
-                                       Source="/Cars/car.png">
+                                       Source="/Cars/renault-kaptur-vnedorozhnik-siniy-goluboy-fioletovyy-10.jpg">
                                     <Image.Clip>
-                                        <RectangleGeometry Rect="0,0,200,150"/>
+                                        <RectangleGeometry Rect="0,25,185,150"/>
                                     </Image.Clip>
                                 </Image>
                             </Border>
@@ -113,10 +114,79 @@
                                            FontSize="22"
                                            Style="{StaticResource ResourceKey=InterFont}">
                                 </TextBlock>
-                                
                             </StackPanel>
                         </Grid>
                     </ListBoxItem>
+
+                    <ListBoxItem Padding="21,15,21,0" 
+                                 HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0"
+                                    Grid.ColumnSpan="2"                                                                
+                                    Height="200" 
+                                    CornerRadius="20"
+                                    Background="White">
+
+                                <!--<Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#E8E9ED" Offset="0."/>
+                                        <GradientStop Color="#C0C3CC" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>-->
+
+                                <Image Grid.Column="1"
+                                       Margin="150,0,-150,0"
+                                       Width="350" 
+                                       RenderOptions.BitmapScalingMode="HighQuality"                                                                     
+                                       Source="/Cars/renault-logan-sedan-seryy-10.png">
+                                    <Image.Clip>
+                                        <RectangleGeometry Rect="0,25,185,150"/>
+                                    </Image.Clip>
+                                </Image>
+                            </Border>
+
+                            <StackPanel Margin="0,20,0,10"
+                                        HorizontalAlignment="Center"
+                                        TextBlock.FontWeight="Bold">
+
+                                <TextBlock 
+                                           DockPanel.Dock="Top"
+                                           Text="Renault"                                          
+                                           Foreground="#E45826"                                         
+                                           FontSize="30"                                         
+                                           Style="{StaticResource ResourceKey=InterFont}">
+                                </TextBlock>
+                                <TextBlock                                          
+                                           Text="Logan"
+                                           Foreground="Black"
+                                           Margin="0,0,0,10"
+                                           FontSize="25"
+                                           Style="{StaticResource ResourceKey=InterFont}">
+                                </TextBlock>
+                                <TextBlock 
+                                           Margin="0,0,0,45"
+                                           Text="25 шт"
+                                           Foreground="Gray"                                        
+                                           FontSize="18"
+                                           Style="{StaticResource ResourceKey=InterFont}">
+                                </TextBlock>
+                                <TextBlock                                        
+                                           Text="1 880 000 ₽"
+                                           Foreground="#E45826"                                          
+                                           FontSize="22"
+                                           Style="{StaticResource ResourceKey=InterFont}">
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </ListBoxItem>
+
+
+
                 </ListBox>
             </Border>
         </Grid>

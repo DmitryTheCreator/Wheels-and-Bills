@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <None Remove="Cars\car.png" />
+    <None Remove="Cars\renault-kaptur-vnedorozhnik-siniy-goluboy-fioletovyy-10.jpg" />
+    <None Remove="Cars\renault-logan-sedan-seryy-10.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Cars\car.png" />
+    <Resource Include="Cars\renault-kaptur-vnedorozhnik-siniy-goluboy-fioletovyy-10.jpg" />
+    <Resource Include="Cars\renault-logan-sedan-seryy-10.png" />
     <Resource Include="Fonts\Inter-VariableFont_slnt,wght.ttf" />
   </ItemGroup>
 
