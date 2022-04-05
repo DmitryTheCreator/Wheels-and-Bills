@@ -11,10 +11,28 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type ListBoxItem}" x:Key="listStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter Margin="5"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     
     <Border Background="#E6D5B8"
             CornerRadius="20">
-        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="400"/>
@@ -40,8 +58,9 @@
             </TextBlock>
 
             <Border Grid.Row="1"                   
-                    Grid.Column="0">
-                
+                    Grid.Column="0"
+                    >
+              
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="#F0A500" Offset="0.0"/>
@@ -50,75 +69,100 @@
                 </Border.Background>
                 
                 <ListBox Background="Transparent" 
-                         HorizontalContentAlignment="Stretch">
-                    <ListBoxItem Padding="21,15,21,0" 
+                         HorizontalContentAlignment="Stretch"
+                         Padding="18,15,16,0"
+                         
+                        
+                         
+                         >
+                    
+                    <ListBox.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="Transparent"/>
+                    </ListBox.Resources>
+                    
+                    <ListBoxItem Style="{StaticResource ResourceKey=listStyle}" 
                                  HorizontalContentAlignment="Stretch">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="200"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Border Grid.Column="0"
-                                    Grid.ColumnSpan="2"                                                                
+                        <Border Grid.Column="0"                                                                                                 
                                     Height="200" 
-                                    CornerRadius="20"
-                                    Background="White">
-                                
-                                <!--<Border.Background>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                        <GradientStop Color="#E8E9ED" Offset="0."/>
-                                        <GradientStop Color="#C0C3CC" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Border.Background>-->
-
-                                <Image Grid.Column="1"
-                                       Margin="150,0,-150,0"
-                                       Width="350" 
-                                       RenderOptions.BitmapScalingMode="HighQuality"                                                                     
-                                       Source="/Cars/renault-kaptur-vnedorozhnik-siniy-goluboy-fioletovyy-10.jpg">
-                                    <Image.Clip>
-                                        <RectangleGeometry Rect="0,25,185,150"/>
-                                    </Image.Clip>
-                                </Image>
-                            </Border>
+                                    CornerRadius="25"
+                                    Background="White"
+                                    >
                             
-                            <StackPanel Margin="0,20,0,10"
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition Width="200"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0" 
+                                    Panel.ZIndex="2"
+                                    >
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#711A75" Offset="1"/>
+                                            <GradientStop Color="#9254C8" Offset="0.5"/>
+                                            <GradientStop Color="#711A75" Offset="0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+
+                                </Border>
+
+
+
+                                <StackPanel Margin="0,20,0,10"
+                                        Grid.Column="1"
                                         HorizontalAlignment="Center"
                                         TextBlock.FontWeight="Bold">
-                                
-                                <TextBlock 
+
+                                    <TextBlock 
                                            DockPanel.Dock="Top"
                                            Text="Renault"                                          
                                            Foreground="#E45826"                                         
                                            FontSize="30"                                         
                                            Style="{StaticResource ResourceKey=InterFont}">
-                                </TextBlock>
-                                <TextBlock                                          
+                                    </TextBlock>
+                                    <TextBlock                                          
                                            Text="Logan"
                                            Foreground="Black"
                                            Margin="0,0,0,10"
                                            FontSize="25"
                                            Style="{StaticResource ResourceKey=InterFont}">
-                                </TextBlock>
-                                <TextBlock 
+                                    </TextBlock>
+                                    <TextBlock 
                                            Margin="0,0,0,45"
                                            Text="25 шт"
                                            Foreground="Gray"                                        
                                            FontSize="18"
                                            Style="{StaticResource ResourceKey=InterFont}">
-                                </TextBlock>
-                                <TextBlock                                        
+                                    </TextBlock>
+                                    <TextBlock                                        
                                            Text="1 880 000 ₽"
                                            Foreground="#E45826"                                          
                                            FontSize="22"
                                            Style="{StaticResource ResourceKey=InterFont}">
-                                </TextBlock>
-                            </StackPanel>
-                        </Grid>
+                                    </TextBlock>
+                                    
+                                   
+                                </StackPanel>
+                                <Image Grid.Column="2"
+                                       
+                                       Width="350" 
+                                       RenderOptions.BitmapScalingMode="HighQuality"                                                                     
+                                       Source="/Cars/renault-kaptur-vnedorozhnik-siniy-goluboy-fioletovyy-10.jpg">
+                                    <Image.Clip>
+                                        <RectangleGeometry Rect="0,25,200,150"/>
+                                    </Image.Clip>
+                                </Image>
+                            </Grid>
+
+                            
+                        </Border>
+                       
                     </ListBoxItem>
 
-                    <ListBoxItem Padding="21,15,21,0" 
+                    <ListBoxItem 
                                  HorizontalContentAlignment="Stretch">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -150,7 +194,7 @@
                                 </Image>
                             </Border>
 
-                            <StackPanel Margin="0,20,0,10"
+                            <StackPanel Margin="20,20,0,10"
                                         HorizontalAlignment="Center"
                                         TextBlock.FontWeight="Bold">
 
