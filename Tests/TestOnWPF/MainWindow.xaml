@@ -15,52 +15,29 @@
 
     <Window.Resources>
 
-        <Style TargetType="{x:Type ListBox}" x:Key="adf">
-            <Setter Property="RenderTransform">
-                <Setter.Value>
-                    <TranslateTransform x:Name="ItemTranslate"/>
-                </Setter.Value>
-            </Setter>
+        <Style x:Key="InterFont">
+            <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/#Inter"/>
         </Style>
-
+        
         <LinearGradientBrush x:Key="IsSelectedColor" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#711A75" Offset="1"/>
-            <GradientStop Color="#9254C8" Offset="0.5"/>
-            <GradientStop Color="#711A75" Offset="0"/>
+            <GradientStop Color="#4D77FF" Offset="1"/>
+            <GradientStop Color="#56BBF1" Offset="0.5"/>
+            <GradientStop Color="#4D77FF" Offset="0"/>
         </LinearGradientBrush>
 
-        <!--<Style TargetType="{x:Type ListBox}">
-            <Style.Setters>
-                <Setter Property="ItemContainerStyle">
-                    <Setter.Value>
-                        <Style>
-                            <Style.Triggers>
-                                <Trigger Property="ListBoxItem.IsSelected" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard Target="ListBoxItem" TargetProperty="Background.Color">
-                                                <ColorAnimation To="Red" Duration="0:0:0.5" AutoReverse="true" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Setter.Value>
-                </Setter>
-            </Style.Setters>
-        </Style>-->
-        
         <Style TargetType="ListBoxItem"
                x:Key="ListBoxItemStyle">
+            
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListBoxItem">
-                        <Border Grid.Column="0"                                                                                                 
-                                    Height="200" 
-                                    Width="330"
+                        <Border Grid.Column="0"  
+                                x:Name="bord"
+                                    Height="200"                                
+                                    Width="330"                                  
                                     CornerRadius="20"                                   
-                                    Margin="5,10,0,0"
+                                    Margin="5,10,0,5"
                                     Background="White">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -70,7 +47,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Border Background="White" x:Name="IsSelectedBorder"/>
-                                
+
                                 <StackPanel Margin="10,20,0,10"
                                         Grid.Column="1"
                                         HorizontalAlignment="Center"
@@ -80,7 +57,7 @@
                                     <TextBlock 
                                            DockPanel.Dock="Top"
                                            Text="{Binding Mark}"                                          
-                                           Foreground="#E45826"                                         
+                                           Foreground="#E45826"                                          
                                            FontSize="30">
                                     </TextBlock>
                                     <TextBlock                                          
@@ -101,7 +78,7 @@
                                            FontSize="22">
                                     </TextBlock>
                                 </StackPanel>
-                                
+
                                 <Image Grid.Column="2"                                   
                                        Width="330" 
                                        RenderOptions.BitmapScalingMode="HighQuality"                                                                     
@@ -111,14 +88,12 @@
                                     </Image.Clip>
                                 </Image>
                             </Grid>
-
-
                         </Border>
+                        
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter TargetName="IsSelectedBorder" Property="Background" 
                                         Value="{StaticResource IsSelectedColor}"/>
-                                
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -132,13 +107,12 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-    
-    <Border Background="#E6D5B8"
+
+    <Border Background="White"
             CornerRadius="20">
-        
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="360"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -153,61 +127,34 @@
             </Border>
 
             <TextBlock Grid.Row="0" Grid.Column="0"
-                       HorizontalAlignment="Center"
+                       Grid.ColumnSpan="2"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
                        Text="Wheels and Bills"
-                           Foreground="White"
-                           FontSize="50"
-                           Style="{StaticResource ResourceKey=InterFont}">
+                       Foreground="White"
+                       FontSize="50"
+                       Style="{StaticResource ResourceKey=InterFont}">
             </TextBlock>
 
             <Border Grid.Row="1"                   
                     Grid.Column="0">
 
                 <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#F0A500" Offset="0.0"/>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="DarkBlue" Offset="0.1"/>
                         <GradientStop Color="#E45826" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <ListBox Background="Transparent" 
+                <ListBox Background="Transparent"
+                         BorderThickness="0"
                          HorizontalContentAlignment="Stretch"
-                         Padding="-20,5,40,30"
-                         
+                         Padding="0,0,5,0"
                          ItemsSource="{Binding CarRegister}"
                          SelectedItem="{Binding SelectedCar}"
                          ItemContainerStyle="{StaticResource ListBoxItemStyle}">
-
-                    <!--<ListBox.Resources>
-                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
-                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="Transparent"/>
-                    </ListBox.Resources>-->
-
-                    
-                
-                    <!--<ListBox.Triggers>
-                        <EventTrigger RoutedEvent="ListBox.SelectionChanged">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetName="{StaticResource ResourceKey=adf}"
-                                                             Storyboard.TargetProperty="X"
-                                                             From="0" To="30"
-                                                             Duration="0:0:.3"/>                                 
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </ListBox.Triggers>-->
-                    
-                    <!--<ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        </Style>
-                    </ListBox.ItemContainerStyle>-->
                 </ListBox>
             </Border>
         </Grid>
-        
-        
-
     </Border>
 </Window>
