@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:TestOnWPF.ViewModels"
         xmlns:local="clr-namespace:TestOnWPF"
         mc:Ignorable="d"        
         Height="800" Width="1200"
@@ -13,16 +14,111 @@
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
-        <Style TargetType="{x:Type ListBoxItem}" x:Key="listStyle">
+
+        <Style TargetType="{x:Type ListBox}" x:Key="adf">
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TranslateTransform x:Name="ItemTranslate"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <LinearGradientBrush x:Key="IsSelectedColor" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#711A75" Offset="1"/>
+            <GradientStop Color="#9254C8" Offset="0.5"/>
+            <GradientStop Color="#711A75" Offset="0"/>
+        </LinearGradientBrush>
+
+        <!--<Style TargetType="{x:Type ListBox}">
+            <Style.Setters>
+                <Setter Property="ItemContainerStyle">
+                    <Setter.Value>
+                        <Style>
+                            <Style.Triggers>
+                                <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Target="ListBoxItem" TargetProperty="Background.Color">
+                                                <ColorAnimation To="Red" Duration="0:0:0.5" AutoReverse="true" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>-->
+        
+        <Style TargetType="ListBoxItem"
+               x:Key="ListBoxItemStyle">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter Margin="5"/>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Grid.Column="0"                                                                                                 
+                                    Height="200" 
+                                    Width="330"
+                                    CornerRadius="20"                                   
+                                    Margin="5,10,0,0"
+                                    Background="White">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Background="White" x:Name="IsSelectedBorder"/>
+                                
+                                <StackPanel Margin="10,20,0,10"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Center"
+                                        TextBlock.FontWeight="Bold"
+                                        Style="{StaticResource ResourceKey=InterFont}">
+
+                                    <TextBlock 
+                                           DockPanel.Dock="Top"
+                                           Text="{Binding Mark}"                                          
+                                           Foreground="#E45826"                                         
+                                           FontSize="30">
+                                    </TextBlock>
+                                    <TextBlock                                          
+                                           Text="{Binding Model}"
+                                           Foreground="Black"
+                                           Margin="0,0,0,10"
+                                           FontSize="25">
+                                    </TextBlock>
+                                    <TextBlock 
+                                           Margin="0,0,0,45"
+                                           Text="{Binding Amount}"
+                                           Foreground="Gray"                                        
+                                           FontSize="18">
+                                    </TextBlock>
+                                    <TextBlock                                        
+                                           Text="{Binding Price}"
+                                           Foreground="#E45826"                                          
+                                           FontSize="22">
+                                    </TextBlock>
+                                </StackPanel>
+                                
+                                <Image Grid.Column="2"                                   
+                                       Width="330" 
+                                       RenderOptions.BitmapScalingMode="HighQuality"                                                                     
+                                       Source="{Binding Photo}">
+                                    <Image.Clip>
+                                        <RectangleGeometry Rect="0,25,250,150"/>
+                                    </Image.Clip>
+                                </Image>
+                            </Grid>
+
+
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter TargetName="IsSelectedBorder" Property="Background" 
+                                        Value="{StaticResource IsSelectedColor}"/>
+                                
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -30,9 +126,16 @@
             </Setter>
         </Style>
     </Window.Resources>
+
+    
+    
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
     
     <Border Background="#E6D5B8"
             CornerRadius="20">
+        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="400"/>
@@ -58,179 +161,48 @@
             </TextBlock>
 
             <Border Grid.Row="1"                   
-                    Grid.Column="0"
-                    >
-              
+                    Grid.Column="0">
+
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="#F0A500" Offset="0.0"/>
                         <GradientStop Color="#E45826" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
-                
+
                 <ListBox Background="Transparent" 
                          HorizontalContentAlignment="Stretch"
-                         Padding="18,15,16,0"
+                         Padding="-20,5,40,30"
                          
-                        
-                         
-                         >
-                    
-                    <ListBox.Resources>
+                         ItemsSource="{Binding CarRegister}"
+                         SelectedItem="{Binding SelectedCar}"
+                         ItemContainerStyle="{StaticResource ListBoxItemStyle}">
+
+                    <!--<ListBox.Resources>
                         <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
                         <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="Transparent"/>
-                    </ListBox.Resources>
+                    </ListBox.Resources>-->
+
                     
-                    <ListBoxItem Style="{StaticResource ResourceKey=listStyle}" 
-                                 HorizontalContentAlignment="Stretch">
-                        <Border Grid.Column="0"                                                                                                 
-                                    Height="200" 
-                                    CornerRadius="25"
-                                    Background="White"
-                                    >
-                            
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="20"/>
-                                    <ColumnDefinition Width="130"/>
-                                    <ColumnDefinition Width="200"/>
-                                </Grid.ColumnDefinitions>
-
-                                <Border Grid.Column="0" 
-                                    Panel.ZIndex="2"
-                                    >
-                                    <Border.Background>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                            <GradientStop Color="#711A75" Offset="1"/>
-                                            <GradientStop Color="#9254C8" Offset="0.5"/>
-                                            <GradientStop Color="#711A75" Offset="0"/>
-                                        </LinearGradientBrush>
-                                    </Border.Background>
-
-                                </Border>
-
-
-
-                                <StackPanel Margin="0,20,0,10"
-                                        Grid.Column="1"
-                                        HorizontalAlignment="Center"
-                                        TextBlock.FontWeight="Bold">
-
-                                    <TextBlock 
-                                           DockPanel.Dock="Top"
-                                           Text="Renault"                                          
-                                           Foreground="#E45826"                                         
-                                           FontSize="30"                                         
-                                           Style="{StaticResource ResourceKey=InterFont}">
-                                    </TextBlock>
-                                    <TextBlock                                          
-                                           Text="Logan"
-                                           Foreground="Black"
-                                           Margin="0,0,0,10"
-                                           FontSize="25"
-                                           Style="{StaticResource ResourceKey=InterFont}">
-                                    </TextBlock>
-                                    <TextBlock 
-                                           Margin="0,0,0,45"
-                                           Text="25 шт"
-                                           Foreground="Gray"                                        
-                                           FontSize="18"
-                                           Style="{StaticResource ResourceKey=InterFont}">
-                                    </TextBlock>
-                                    <TextBlock                                        
-                                           Text="1 880 000 ₽"
-                                           Foreground="#E45826"                                          
-                                           FontSize="22"
-                                           Style="{StaticResource ResourceKey=InterFont}">
-                                    </TextBlock>
-                                    
-                                   
-                                </StackPanel>
-                                <Image Grid.Column="2"
-                                       
-                                       Width="350" 
-                                       RenderOptions.BitmapScalingMode="HighQuality"                                                                     
-                                       Source="/Cars/renault-kaptur-vnedorozhnik-siniy-goluboy-fioletovyy-10.jpg">
-                                    <Image.Clip>
-                                        <RectangleGeometry Rect="0,25,200,150"/>
-                                    </Image.Clip>
-                                </Image>
-                            </Grid>
-
-                            
-                        </Border>
-                       
-                    </ListBoxItem>
-
-                    <ListBoxItem 
-                                 HorizontalContentAlignment="Stretch">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="200"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Border Grid.Column="0"
-                                    Grid.ColumnSpan="2"                                                                
-                                    Height="200" 
-                                    CornerRadius="20"
-                                    Background="White">
-
-                                <!--<Border.Background>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                        <GradientStop Color="#E8E9ED" Offset="0."/>
-                                        <GradientStop Color="#C0C3CC" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Border.Background>-->
-
-                                <Image Grid.Column="1"
-                                       Margin="150,0,-150,0"
-                                       Width="350" 
-                                       RenderOptions.BitmapScalingMode="HighQuality"                                                                     
-                                       Source="/Cars/renault-logan-sedan-seryy-10.png">
-                                    <Image.Clip>
-                                        <RectangleGeometry Rect="0,25,185,150"/>
-                                    </Image.Clip>
-                                </Image>
-                            </Border>
-
-                            <StackPanel Margin="20,20,0,10"
-                                        HorizontalAlignment="Center"
-                                        TextBlock.FontWeight="Bold">
-
-                                <TextBlock 
-                                           DockPanel.Dock="Top"
-                                           Text="Renault"                                          
-                                           Foreground="#E45826"                                         
-                                           FontSize="30"                                         
-                                           Style="{StaticResource ResourceKey=InterFont}">
-                                </TextBlock>
-                                <TextBlock                                          
-                                           Text="Logan"
-                                           Foreground="Black"
-                                           Margin="0,0,0,10"
-                                           FontSize="25"
-                                           Style="{StaticResource ResourceKey=InterFont}">
-                                </TextBlock>
-                                <TextBlock 
-                                           Margin="0,0,0,45"
-                                           Text="25 шт"
-                                           Foreground="Gray"                                        
-                                           FontSize="18"
-                                           Style="{StaticResource ResourceKey=InterFont}">
-                                </TextBlock>
-                                <TextBlock                                        
-                                           Text="1 880 000 ₽"
-                                           Foreground="#E45826"                                          
-                                           FontSize="22"
-                                           Style="{StaticResource ResourceKey=InterFont}">
-                                </TextBlock>
-                            </StackPanel>
-                        </Grid>
-                    </ListBoxItem>
-
-
-
+                
+                    <!--<ListBox.Triggers>
+                        <EventTrigger RoutedEvent="ListBox.SelectionChanged">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="{StaticResource ResourceKey=adf}"
+                                                             Storyboard.TargetProperty="X"
+                                                             From="0" To="30"
+                                                             Duration="0:0:.3"/>                                 
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ListBox.Triggers>-->
+                    
+                    <!--<ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>-->
                 </ListBox>
             </Border>
         </Grid>
