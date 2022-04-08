@@ -10,6 +10,14 @@
     <None Remove="Cars\car.png" />
     <None Remove="Cars\renault-kaptur-vnedorozhnik-siniy-goluboy-fioletovyy-10.jpg" />
     <None Remove="Cars\renault-logan-sedan-seryy-10.png" />
+    <None Remove="Icons\car-engine_icon.png" />
+    <None Remove="Icons\car_icon.png" />
+    <None Remove="Icons\gas-station_icon.png" />
+    <None Remove="Icons\manual-transmission_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome5" Version="2.1.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +25,10 @@
     <Resource Include="Cars\renault-kaptur-vnedorozhnik-siniy-goluboy-fioletovyy-10.jpg" />
     <Resource Include="Cars\renault-logan-sedan-seryy-10.png" />
     <Resource Include="Fonts\Inter-VariableFont_slnt,wght.ttf" />
+    <Resource Include="Icons\car-engine_icon.png" />
+    <Resource Include="Icons\car_icon.png" />
+    <Resource Include="Icons\gas-station_icon.png" />
+    <Resource Include="Icons\manual-transmission_icon.png" />
   </ItemGroup>
 
 </Project>
