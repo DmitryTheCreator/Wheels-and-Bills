@@ -72,6 +72,19 @@ namespace TestOnWPF.ViewModels
                 Transmission = "МКПП",
                 Photo = "/Cars/renault-logan-sedan-seryy-10.png"
             };
+            var Renault_Logan1 = new Car
+            {
+                Mark = "Renault",
+                Model = "Logan",
+                Amount = 3,
+                BodyShape = "Седан 5-дв.",
+                EnginePower = 113,
+                TypeOfDrive = "Передний",
+                IssueYear = 2022,
+                Price = 1124000,
+                Transmission = "МКПП",
+                Photo = "/Cars/renault-logan-sedan-seryy-10.png"
+            };
             //var cars = Enumerable.Range(1, 20).Select(i => new Car
             //{
             //    Mark = $"Car {car_index}",
@@ -92,7 +105,8 @@ namespace TestOnWPF.ViewModels
             var cars = new List<Car>
             {
                 Renault_Kaptur,
-                Renault_Logan
+                Renault_Logan,
+                Renault_Logan1
             };
 
 
