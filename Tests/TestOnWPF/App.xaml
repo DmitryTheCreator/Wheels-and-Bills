@@ -4,8 +4,6 @@
              xmlns:local="clr-namespace:TestOnWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-      
-
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/DataTemplates/CompositeTextbox.xaml"/>
@@ -14,9 +12,5 @@
                 <ResourceDictionary Source="Resources/DataTemplates/CompositeComboBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
-
-
-      
     </Application.Resources>
 </Application>
