@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="Resources/DataTemplates/CompositeTextbox.xaml"/>
                 <ResourceDictionary Source="Resources/DataTemplates/NiceFont.xaml"/>
                 <ResourceDictionary Source="Resources/DataTemplates/CompositeListBoxItem.xaml"/>
+                <ResourceDictionary Source="Resources/DataTemplates/CompositeComboBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
