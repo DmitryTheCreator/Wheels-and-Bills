@@ -12,6 +12,7 @@
     <None Remove="Cars\renault-logan-sedan-seryy-10.png" />
     <None Remove="Icons\car-engine_icon.png" />
     <None Remove="Icons\car_icon.png" />
+    <None Remove="Icons\filter_icon.png" />
     <None Remove="Icons\gas-station_icon.png" />
     <None Remove="Icons\manual-transmission_icon.png" />
   </ItemGroup>
@@ -27,6 +28,7 @@
     <Resource Include="Fonts\Inter-VariableFont_slnt,wght.ttf" />
     <Resource Include="Icons\car-engine_icon.png" />
     <Resource Include="Icons\car_icon.png" />
+    <Resource Include="Icons\filter_icon.png" />
     <Resource Include="Icons\gas-station_icon.png" />
     <Resource Include="Icons\manual-transmission_icon.png" />
   </ItemGroup>

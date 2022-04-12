@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="Resources/Styles/MainFont.xaml"/>
                 <ResourceDictionary Source="Resources/DataTemplates/CompositeListBoxItem.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/MainComboBox.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/FilterButton.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

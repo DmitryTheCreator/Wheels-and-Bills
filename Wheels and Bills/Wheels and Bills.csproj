@@ -11,6 +11,7 @@
     <None Remove="Resources\Fonts\Inter.ttf" />
     <None Remove="Resources\Icons\car-engine_icon.png" />
     <None Remove="Resources\Icons\car_icon.png" />
+    <None Remove="Resources\Icons\filter_icon.png" />
     <None Remove="Resources\Icons\gas-station_icon.png" />
     <None Remove="Resources\Icons\manual-transmission_icon.png" />
     <None Remove="Resources\Images\Cars\renault-kaptur.jpg" />
@@ -29,6 +30,7 @@
     <Resource Include="Resources\Fonts\Inter.ttf" />
     <Resource Include="Resources\Icons\car-engine_icon.png" />
     <Resource Include="Resources\Icons\car_icon.png" />
+    <Resource Include="Resources\Icons\filter_icon.png" />
     <Resource Include="Resources\Icons\gas-station_icon.png" />
     <Resource Include="Resources\Icons\manual-transmission_icon.png" />
     <Resource Include="Resources\Images\Cars\renault-kaptur.jpg" />

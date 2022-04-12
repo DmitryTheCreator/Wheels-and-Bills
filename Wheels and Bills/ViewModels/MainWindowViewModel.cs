@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Wheels_and_Bills.ViewModels.Base;
 using Wheels_and_Bills.Models;
+using System.Windows.Input;
 
 namespace Wheels_and_Bills.ViewModels
 {
@@ -35,6 +36,11 @@ namespace Wheels_and_Bills.ViewModels
         }
 
         #endregion
+
+
+        //public ICommand FilterWindowCommand { get; }
+
+        //private void OnFilterWindowCommandExecuted(object p) => new FilterWindow().Show();
 
         public ObservableCollection<Car> CarRegister { get; }
 

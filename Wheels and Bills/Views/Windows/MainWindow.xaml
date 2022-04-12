@@ -49,9 +49,14 @@
                          VerticalAlignment="Center"
                          HorizontalAlignment="Left"
                          FontSize="18"
-                         Margin="15"
+                         Margin="15"                       
                          Style="{StaticResource ModernTextBox}">
                 </TextBox>
+
+                <Button Height="40" 
+                        Width="40"
+                        Style="{StaticResource FilterButton}">
+                </Button>
 
                 <StackPanel Orientation="Horizontal"
                             VerticalAlignment="Bottom"
@@ -68,9 +73,9 @@
                         <TextBlock>Сначала недорогие</TextBlock>
                         <TextBlock>По наименованию</TextBlock>
                     </ComboBox>
-
-
                 </StackPanel>
+                <!--<Button Width="30"
+                        Command="{Binding FilterWindowCommand}"/>-->
             </StackPanel>
 
             <Border Grid.Row="1"                   
@@ -375,6 +380,7 @@
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
+                                
                                 <Separator Background="#D9D9DB"
                                            Margin="0,0,0,10"/>
                                 <DockPanel>

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:TestOnWPF.ViewModels"
+        xmlns:view="clr-namespace:TestOnWPF.Views"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:local="clr-namespace:TestOnWPF"
         mc:Ignorable="d"        
@@ -55,6 +56,11 @@
                          Style="{StaticResource ModernTextBox}">
                 </TextBox>
 
+                <Button Height="40" 
+                        Width="40"
+                        Style="{StaticResource FilterButton}">
+                </Button>
+                
                 <StackPanel Orientation="Horizontal"
                             VerticalAlignment="Bottom"
                             Margin="10,0,0,15"
@@ -71,7 +77,7 @@
                         <TextBlock>По наименованию</TextBlock>
                     </ComboBox>
 
-
+                   
                 </StackPanel>
             </StackPanel>
 
@@ -215,7 +221,7 @@
                                     <TextBlock Text="Тип кузова"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа Рамзеса"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -225,7 +231,7 @@
                                     <TextBlock Text="Привод"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -235,7 +241,7 @@
                                     <TextBlock Text="Трансмиссия"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -245,7 +251,7 @@
                                     <TextBlock Text="Тип двигателя"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -255,7 +261,7 @@
                                     <TextBlock Text="Тип машины"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -265,7 +271,7 @@
                                     <TextBlock Text="Год выпуска"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -275,7 +281,7 @@
                                     <TextBlock Text="Цвет"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -303,7 +309,7 @@
                                     <TextBlock Text="Категория машины"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -313,7 +319,7 @@
                                     <TextBlock Text="Топливная система"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -323,7 +329,7 @@
                                     <TextBlock Text="Тип топлива"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -333,7 +339,7 @@
                                     <TextBlock Text="Мощность, л.с."
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -343,7 +349,7 @@
                                     <TextBlock Text="Число цилиндров"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -353,7 +359,7 @@
                                     <TextBlock Text="Расход топлива в городе, л/100км"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -363,7 +369,7 @@
                                     <TextBlock Text="Расход топлива на бездорожье, л/100км"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -373,7 +379,7 @@
                                     <TextBlock Text="Количество дверей, шт."
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -383,7 +389,7 @@
                                     <TextBlock Text="Регистрационный номер машины"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Жопа"
+                                    <TextBlock Text="Что-то"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
