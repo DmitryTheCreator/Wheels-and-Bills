@@ -4,9 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Wheels_and_Bills.ViewModels"
+        xmlns:view="clr-namespace:Wheels_and_Bills.Views"
+        xmlns:cmd="clr-namespace:Wheels_and_Bills.Infrastructure.Commands"      
         xmlns:local="clr-namespace:Wheels_and_Bills"
         mc:Ignorable="d"
-        Height="800" Width="1200"
+        Height="800" Width="1400"
         WindowStyle="None"    
         ResizeMode="NoResize"
         Background="Transparent"
@@ -56,6 +58,9 @@
                 <Button Height="40" 
                         Width="40"
                         Style="{StaticResource FilterButton}">
+                    <Button.Command>
+                        <cmd:OpenFiltersCommand />
+                    </Button.Command>
                 </Button>
 
                 <StackPanel Orientation="Horizontal"
@@ -74,8 +79,6 @@
                         <TextBlock>По наименованию</TextBlock>
                     </ComboBox>
                 </StackPanel>
-                <!--<Button Width="30"
-                        Command="{Binding FilterWindowCommand}"/>-->
             </StackPanel>
 
             <Border Grid.Row="1"                   
