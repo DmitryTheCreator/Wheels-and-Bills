@@ -65,8 +65,7 @@
 
                 <StackPanel Orientation="Horizontal"
                             VerticalAlignment="Bottom"
-                            Margin="10,0,0,15"
-                            >
+                            Margin="10,0,0,15">
                     <TextBlock Text="Сортировка: "
                                FontSize="20"                              
                                Foreground="White"

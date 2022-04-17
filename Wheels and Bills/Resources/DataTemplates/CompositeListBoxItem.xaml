@@ -7,17 +7,17 @@
     </LinearGradientBrush>
 
     <Style TargetType="ListBoxItem"
-               x:Key="ListBoxItemStyle">
+           x:Key="ListBoxItemStyle">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
                     <Border Grid.Column="0"  
-                                x:Name="bord"
-                                    Height="200"                                
-                                    Width="330"                                  
-                                    CornerRadius="15"                                   
-                                    Margin="5,10,0,5"
-                                    Background="White">
+                            x:Name="bord"
+                            Height="200"                                
+                            Width="330"                                  
+                            CornerRadius="15"                                   
+                            Margin="5,10,0,5"
+                            Background="White">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="15"/>

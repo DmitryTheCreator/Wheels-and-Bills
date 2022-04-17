@@ -38,9 +38,6 @@ namespace Wheels_and_Bills.ViewModels
         #endregion
 
 
-        //public ICommand FilterWindowCommand { get; }
-
-        //private void OnFilterWindowCommandExecuted(object p) => new FilterWindow().Show();
 
         public ObservableCollection<Car> CarRegister { get; }
 
@@ -59,7 +56,7 @@ namespace Wheels_and_Bills.ViewModels
                 Transmission = "МКПП",
                 Photo = "/Resources/Images/Cars/renault-kaptur.jpg"
             };
-
+            
             var Renault_Logan = new Car
             {
                 Mark = "Renault",
