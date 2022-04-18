@@ -7,4 +7,34 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="DataBase\Auto.db" />
+    <None Remove="Resources\Fonts\Inter.ttf" />
+    <None Remove="Resources\Icons\car-engine_icon.png" />
+    <None Remove="Resources\Icons\car_icon.png" />
+    <None Remove="Resources\Icons\filter_icon.png" />
+    <None Remove="Resources\Icons\gas-station_icon.png" />
+    <None Remove="Resources\Icons\manual-transmission_icon.png" />
+    <None Remove="Resources\Images\Cars\renault-kaptur.jpg" />
+    <None Remove="Resources\Images\Cars\renault-logan.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome5" Version="2.1.6" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.4" />
+    <PackageReference Include="SQLitePCLRaw.bundle_winsqlite3" Version="2.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="DataBase\Auto.db" />
+    <Resource Include="Resources\Fonts\Inter.ttf" />
+    <Resource Include="Resources\Icons\car-engine_icon.png" />
+    <Resource Include="Resources\Icons\car_icon.png" />
+    <Resource Include="Resources\Icons\filter_icon.png" />
+    <Resource Include="Resources\Icons\gas-station_icon.png" />
+    <Resource Include="Resources\Icons\manual-transmission_icon.png" />
+    <Resource Include="Resources\Images\Cars\renault-kaptur.jpg" />
+    <Resource Include="Resources\Images\Cars\renault-logan.jpg" />
+  </ItemGroup>
+
 </Project>

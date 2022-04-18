@@ -1,0 +1,403 @@
+﻿<Window x:Class="TestOnWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:TestOnWPF.ViewModels"
+        xmlns:view="clr-namespace:TestOnWPF.Views"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:local="clr-namespace:TestOnWPF"
+        mc:Ignorable="d"        
+        Height="800" Width="1200"
+        WindowStyle="None"    
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style x:Key="InterFont">
+            <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/#Inter"/>
+        </Style>
+    </Window.Resources>
+  
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Border Background="White"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="360"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" 
+                    Grid.ColumnSpan="2"
+                    Background="#1B1A17">
+            </Border>
+            
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2">
+                <TextBox Width="250"
+                         Height="40"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Left"
+                         FontSize="18"
+                         Margin="15"
+                         Style="{StaticResource ModernTextBox}">
+                </TextBox>
+
+                <Button Height="40" 
+                        Width="40"
+                        Style="{StaticResource FilterButton}">
+                </Button>
+                
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Bottom"
+                            Margin="10,0,0,15"
+                            >
+                    <TextBlock Text="Сортировка: "
+                               FontSize="20"                              
+                               Foreground="White"
+                               Style="{StaticResource ResourceKey=InterFont}"/>
+                    <ComboBox Foreground="White"
+                              TextBlock.FontSize="14"
+                              Style="{StaticResource ResourceKey=ModernComboBox}">
+                        <TextBlock>Сначала дорогие</TextBlock>
+                        <TextBlock>Сначала недорогие</TextBlock>
+                        <TextBlock>По наименованию</TextBlock>
+                    </ComboBox>
+
+                   
+                </StackPanel>
+            </StackPanel>
+
+            <Border Grid.Row="1"                   
+                    Grid.Column="0">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="DarkBlue" Offset="0.1"/>
+                        <GradientStop Color="#E45826" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <ListBox Background="Transparent"
+                         BorderThickness="0"
+                         HorizontalContentAlignment="Stretch"
+                         Padding="0,0,5,0"
+                         ItemsSource="{Binding CarRegister}"
+                         SelectedItem="{Binding SelectedCar}"
+                         ItemContainerStyle="{StaticResource ListBoxItemStyle}">
+                </ListBox>
+            </Border>
+
+            <StackPanel Grid.Column="1"
+                        Grid.Row="1"
+                        Margin="20,0">
+                <Grid Grid.Column="1" 
+                      Grid.Row="1"                
+                      VerticalAlignment="Top">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="450"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+
+                    <Image Grid.Column="0"
+                           Grid.Row="0"
+                           Source="{Binding SelectedCar.Photo}"/>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                Grid.Column="0">
+                        <Image Width="147"
+                               Source="{Binding SelectedCar.Photo}"
+                               RenderOptions.BitmapScalingMode="HighQuality"/>
+                        <Image Width="147"
+                               Source="{Binding SelectedCar.Photo}"
+                               RenderOptions.BitmapScalingMode="HighQuality"/>
+                        <Image Width="147"
+                               Source="{Binding SelectedCar.Photo}"
+                               RenderOptions.BitmapScalingMode="HighQuality"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1"
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                HorizontalAlignment="Left"
+                                Margin="0,20">
+
+                        <StackPanel Orientation="Vertical"                             
+                                    Style="{StaticResource ResourceKey=InterFont}">
+                            <TextBlock Text="{Binding SelectedCar.Mark}"
+                                       Margin="10,0,0,0"
+                                       FontSize="50"
+                                       Foreground="#E45826"/>
+                            <TextBlock Text="{Binding SelectedCar.Model}"
+                                       Margin="10,0,0,0"
+                                       FontSize="40"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left"
+                                    Margin="10,0"
+                                    TextBlock.Foreground="Gray"                                    
+                                    TextBlock.FontSize="12"  
+                                    Style="{StaticResource ResourceKey=InterFont}">
+
+                            <StackPanel Margin="0,0,15,0">
+                                <Image Source="\Icons\car_icon.png"
+                                       Width="50"                                    
+                                       RenderOptions.BitmapScalingMode="HighQuality"/>
+                                <TextBlock HorizontalAlignment="Center"
+                                           Text="{Binding SelectedCar.IssueYear}"/>
+                            </StackPanel>
+
+                            <StackPanel Margin="0,0,10,0">
+                                <Image Source="\Icons\manual-transmission_icon.png"
+                                       Width="50"                         
+                                       RenderOptions.BitmapScalingMode="HighQuality"/>
+                                <TextBlock HorizontalAlignment="Center"
+                                           Text="{Binding SelectedCar.Transmission}"/>
+                            </StackPanel>
+
+                            <StackPanel>
+                                <Image Source="\Icons\car-engine_icon.png"
+                                       Width="50"                                 
+                                       RenderOptions.BitmapScalingMode="HighQuality"/>
+                                <TextBlock HorizontalAlignment="Center"
+                                           Text="{Binding SelectedCar.EnginePower}"/>
+                            </StackPanel>
+
+                            <StackPanel>
+                                <Image Source="\Icons\gas-station_icon.png"
+                                       Width="50"                                      
+                                       RenderOptions.BitmapScalingMode="HighQuality">
+                                </Image>
+                                <TextBlock HorizontalAlignment="Center"
+                                           Text="Бензиновый"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400"/>
+                        <ColumnDefinition Width="400"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0"
+                                Margin="0,0,5,0"
+                                Style="{StaticResource ResourceKey=InterFont}">
+                        <Border Height="50"
+                                Background="#F5F4F8"
+                                >
+                            <TextBlock Text="Основные характеристики"
+                                       FontSize="22"
+                                       VerticalAlignment="Center"
+                                       Margin="20,0,0,0"/>
+                        </Border>
+
+                        <GroupBox> 
+                            <StackPanel TextBlock.FontSize="16"
+                                        Margin="0,10,0,0">
+                                <DockPanel>
+                                    <TextBlock Text="Тип кузова"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Привод"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Трансмиссия"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Тип двигателя"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Тип машины"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Год выпуска"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Цвет"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Column="1"
+                                Margin="5,0,0,0"
+                                Style="{StaticResource ResourceKey=InterFont}">
+                        <Border Height="50"
+                                Background="#F4F4F8">
+                            <TextBlock Text="Дополнительно"
+                                       FontSize="22"
+                                       VerticalAlignment="Center"
+                                       Margin="20,0,0,0"/>
+                        </Border>
+
+                        <GroupBox>
+                            <StackPanel TextBlock.FontSize="16"
+                                        Margin="0,10,0,0">
+                                <DockPanel>
+                                    <TextBlock Text="Категория машины"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Топливная система"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Тип топлива"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Мощность, л.с."
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Число цилиндров"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Расход топлива в городе, л/100км"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Расход топлива на бездорожье, л/100км"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Количество дверей, шт."
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                                <Separator Background="#D9D9DB"
+                                           Margin="0,0,0,10"/>
+                                <DockPanel>
+                                    <TextBlock Text="Регистрационный номер машины"
+                                               DockPanel.Dock="Left"
+                                               TextAlignment="Left"/>
+                                    <TextBlock Text="Что-то"
+                                               DockPanel.Dock="Right"
+                                               TextAlignment="Right"/>
+                                </DockPanel>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,83 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <LinearGradientBrush x:Key="IsSelectedColor" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#4D77FF" Offset="1"/>
+        <GradientStop Color="#56BBF1" Offset="0.5"/>
+        <GradientStop Color="#4D77FF" Offset="0"/>
+    </LinearGradientBrush>
+
+    <Style TargetType="ListBoxItem"
+           x:Key="ListBoxItemStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border Grid.Column="0"  
+                            x:Name="bord"
+                            Height="200"                                
+                            Width="330"                                  
+                            CornerRadius="15"                                   
+                            Margin="5,10,0,5"
+                            Background="White">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="15"/>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="155"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Background="White" x:Name="IsSelectedBorder"/>
+
+                            <StackPanel Margin="5,20,0,10"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Left"
+                                        TextBlock.FontWeight="Bold"
+                                        Style="{StaticResource ResourceKey=InterFont}">
+
+                                <TextBlock 
+                                           DockPanel.Dock="Top"
+                                           Text="{Binding Mark}"                                          
+                                           Foreground="#E45826"                                          
+                                           FontSize="25">
+                                </TextBlock>
+                                <TextBlock                                          
+                                           Text="{Binding Model}"
+                                           Foreground="Black"
+                                           Margin="0,0,0,10"
+                                           FontSize="20">
+                                </TextBlock>
+                                <TextBlock 
+                                           Margin="0,0,0,55"
+                                           Text="{Binding StringFormat={}{0} шт., Path=Amount}"
+                                           Foreground="Gray"                                        
+                                           FontSize="18">
+                                </TextBlock>
+                                <TextBlock                                        
+                                           Text="{Binding StringFormat={}{0} руб., Path=Price}"
+                                           Foreground="#E45826"                                          
+                                           FontSize="22">
+                                </TextBlock>
+                            </StackPanel>
+
+                            <Image Grid.Column="2"                                   
+                                   Width="330" 
+                                   RenderOptions.BitmapScalingMode="HighQuality"                                                                     
+                                   Source="{Binding Photos.CardPhoto}">
+                                <Image.Clip>
+                                    <RectangleGeometry Rect="0,25,250,150"/>
+                                </Image.Clip>
+                            </Image>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="IsSelectedBorder" Property="Background" 
+                                    Value="{StaticResource IsSelectedColor}"/>
+                        </Trigger>
+                        
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
