@@ -59,9 +59,9 @@
                             </StackPanel>
 
                             <Image Grid.Column="2"                                   
-                                       Width="330" 
-                                       RenderOptions.BitmapScalingMode="HighQuality"                                                                     
-                                       Source="{Binding Photo}">
+                                   Width="330" 
+                                   RenderOptions.BitmapScalingMode="HighQuality"                                                                     
+                                   Source="{Binding Photos.CardPhoto}">
                                 <Image.Clip>
                                     <RectangleGeometry Rect="0,25,250,150"/>
                                 </Image.Clip>
@@ -72,8 +72,9 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="IsSelectedBorder" Property="Background" 
-                                        Value="{StaticResource IsSelectedColor}"/>
+                                    Value="{StaticResource IsSelectedColor}"/>
                         </Trigger>
+                        
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

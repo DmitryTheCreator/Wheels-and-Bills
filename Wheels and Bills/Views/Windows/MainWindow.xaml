@@ -80,7 +80,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <Border Grid.Row="1"                   
+                <Border Grid.Row="1"                   
                     Grid.Column="0">
 
                 <Border.Background>
@@ -90,16 +90,18 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <ListBox Background="Transparent"
+
+                <ListBox Background="Transparent"                            
                          BorderThickness="0"
                          HorizontalContentAlignment="Stretch"
-                         Padding="0,0,5,0"
+                         Padding="0,0,5,0"        
+                         ScrollViewer.CanContentScroll="False"
                          ItemsSource="{Binding CarRegister}"
                          SelectedItem="{Binding SelectedCar}"
                          ItemContainerStyle="{StaticResource ListBoxItemStyle}">
                 </ListBox>
             </Border>
-
+            
             <StackPanel Grid.Column="1"
                         Grid.Row="1"
                         Margin="20,0">
@@ -120,19 +122,19 @@
 
                     <Image Grid.Column="0"
                            Grid.Row="0"
-                           Source="{Binding SelectedCar.Photo}"/>
+                           Source="{Binding SelectedCar.Photos.MainPhoto}"/>
 
                     <StackPanel Orientation="Horizontal"
                                 Grid.Row="1"
                                 Grid.Column="0">
                         <Image Width="147"
-                               Source="{Binding SelectedCar.Photo}"
+                               Source="{Binding SelectedCar.Photos.FrontPhoto}"
                                RenderOptions.BitmapScalingMode="HighQuality"/>
                         <Image Width="147"
-                               Source="{Binding SelectedCar.Photo}"
+                               Source="{Binding SelectedCar.Photos.BackPhoto}"
                                RenderOptions.BitmapScalingMode="HighQuality"/>
                         <Image Width="147"
-                               Source="{Binding SelectedCar.Photo}"
+                               Source="{Binding SelectedCar.Photos.CardPhoto}"
                                RenderOptions.BitmapScalingMode="HighQuality"/>
                     </StackPanel>
 

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DataBase\Auto.db" />
     <None Remove="Resources\Fonts\Inter.ttf" />
     <None Remove="Resources\Icons\car-engine_icon.png" />
     <None Remove="Resources\Icons\car_icon.png" />
@@ -19,14 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FontAwesome5" Version="2.1.6" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.4" />
+    <PackageReference Include="SQLitePCLRaw.bundle_winsqlite3" Version="2.0.7" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="DataBase\Auto.db" />
     <Resource Include="Resources\Fonts\Inter.ttf" />
     <Resource Include="Resources\Icons\car-engine_icon.png" />
     <Resource Include="Resources\Icons\car_icon.png" />
