@@ -8,6 +8,28 @@
 
         public int Amount { get; set; }
 
+        public char Category { get; set; }
+
+        public string TypeOfCar { get; set; }
+
+        public string Color { get; set; }
+
+        public string FuelType { get; set; }
+
+        public string FuelSystem { get; set; }
+
+        public string CityMPG { get; set; }
+
+        public string OffRoadMPG { get; set; }
+
+        public int AmountOfDoors { get; set; }
+
+        public string DriveWheel { get; set; }
+
+        public string EngineType { get; set; }
+
+        public string AmountOfCilinders { get; set; }
+
         public int Price { get; set; }
 
         public int IssueYear { get; set; }
@@ -18,8 +40,8 @@
 
         public string Transmission { get; set; }
 
-        public string TypeOfDrive { get; set; }
+        public string RegistrationNumber { get; set; }
 
-        public string Photo { get; set; }
+        public CarPhotos Photos { get; set; }
     }
 }

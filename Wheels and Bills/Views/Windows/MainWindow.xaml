@@ -220,7 +220,7 @@
                                     <TextBlock Text="Тип кузова"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.BodyShape}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -230,7 +230,7 @@
                                     <TextBlock Text="Привод"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.DriveWheel}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -240,7 +240,7 @@
                                     <TextBlock Text="Трансмиссия"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.Transmission}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -250,7 +250,7 @@
                                     <TextBlock Text="Тип двигателя"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.EngineType}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -260,7 +260,7 @@
                                     <TextBlock Text="Тип машины"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.TypeOfCar}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -270,7 +270,7 @@
                                     <TextBlock Text="Год выпуска"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.IssueYear}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -280,7 +280,7 @@
                                     <TextBlock Text="Цвет"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.Color}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -308,7 +308,7 @@
                                     <TextBlock Text="Категория машины"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.Category}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -318,7 +318,7 @@
                                     <TextBlock Text="Топливная система"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.FuelSystem}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -328,7 +328,7 @@
                                     <TextBlock Text="Тип топлива"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.FuelType}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -338,7 +338,7 @@
                                     <TextBlock Text="Мощность, л.с."
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.EnginePower}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -348,7 +348,7 @@
                                     <TextBlock Text="Число цилиндров"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.AmountOfCilinders}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -358,7 +358,7 @@
                                     <TextBlock Text="Расход топлива в городе, л/100км"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.CityMPG}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -368,7 +368,7 @@
                                     <TextBlock Text="Расход топлива на бездорожье, л/100км"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.OffRoadMPG}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -378,7 +378,7 @@
                                     <TextBlock Text="Количество дверей, шт."
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.AmountOfDoors}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>
@@ -389,7 +389,7 @@
                                     <TextBlock Text="Регистрационный номер машины"
                                                DockPanel.Dock="Left"
                                                TextAlignment="Left"/>
-                                    <TextBlock Text="Что-то"
+                                    <TextBlock Text="{Binding SelectedCar.RegistrationNumber}"
                                                DockPanel.Dock="Right"
                                                TextAlignment="Right"/>
                                 </DockPanel>

@@ -50,11 +50,11 @@ namespace Wheels_and_Bills.ViewModels
                 Amount = 5,
                 BodyShape = "Хетчбэк",
                 EnginePower = 149,
-                TypeOfDrive = "Передний",
+                DriveWheel = "Передний",
                 IssueYear = 2022,
                 Price = 1570900,
                 Transmission = "МКПП",
-                Photo = "/Resources/Images/Cars/renault-kaptur.jpg"
+                
             };
             
             var Renault_Logan = new Car
@@ -64,11 +64,11 @@ namespace Wheels_and_Bills.ViewModels
                 Amount = 3,
                 BodyShape = "Седан 5-дв.",
                 EnginePower = 113,
-                TypeOfDrive = "Передний",
+                DriveWheel = "Передний",
                 IssueYear = 2022,
                 Price = 1124000,
-                Transmission = "МКПП",
-                Photo = "/Resources/Images/Cars/renault-logan.jpg"
+                Transmission = "МКПП",  
+                
             };
                   
             var cars = new List<Car>
