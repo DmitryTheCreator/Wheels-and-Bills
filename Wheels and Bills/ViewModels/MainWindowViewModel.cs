@@ -7,6 +7,8 @@ using Microsoft.Data.Sqlite;
 using System.Windows.Input;
 using System;
 using System.IO;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace Wheels_and_Bills.ViewModels
 {
@@ -31,7 +33,7 @@ namespace Wheels_and_Bills.ViewModels
 
         private Car _SelectedCar;
 
-        /// <summary>Выбранныцй автомобиль</summary>
+        /// <summary>Выбранный автомобиль</summary>
         public Car SelectedCar
         {
             get => _SelectedCar;
@@ -41,9 +43,53 @@ namespace Wheels_and_Bills.ViewModels
         #endregion
 
 
+        #region CarsFilterText : string - Текст фильтра автомобилей
 
-        public ObservableCollection<Car> CarRegister { get; }
+        private string _CarsFilterText;
 
+        /// <summary>Текст фильтра автомобилей</summary>
+        public string CarsFilterText
+        {
+            get => _CarsFilterText;
+            set
+            {
+                if (!Set(ref _CarsFilterText, value)) return;
+                _CarRegister.View.Refresh();
+            }
+        }
+
+        #endregion
+
+        private readonly CollectionViewSource _CarRegister = new CollectionViewSource();
+
+        private void OnCarsFiltered(object sender, FilterEventArgs e)
+        {
+            if (!(e.Item is Car car))
+            {
+                e.Accepted = false; 
+                return;
+            }
+
+            var filter_text = _CarsFilterText;
+            if (string.IsNullOrWhiteSpace(filter_text)) return;
+
+            if (car.Mark is null || car.Model is null)
+            {
+                e.Accepted = false;
+                return;
+            }
+
+            if (car.Mark.Contains(filter_text, StringComparison.OrdinalIgnoreCase)) return;
+            if (car.Model.Contains(filter_text, StringComparison.OrdinalIgnoreCase)) return;
+            if (car.Mark.Contains(filter_text.Split(' ')[0], StringComparison.OrdinalIgnoreCase) &&
+                car.Model.Contains(filter_text.Split(' ')[1], StringComparison.OrdinalIgnoreCase))
+                return;
+
+            e.Accepted = false;
+        }
+
+        public ICollectionView CarRegister => _CarRegister?.View;
+       
         public MainWindowViewModel()
         {
             var cars = new List<Car>();
@@ -86,7 +132,7 @@ namespace Wheels_and_Bills.ViewModels
                 }
 
                 command = new SqliteCommand(SqlExpression, connection);
-              
+
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {                
                     if (reader.HasRows) // если есть данные
@@ -131,9 +177,12 @@ namespace Wheels_and_Bills.ViewModels
                 }             
                 connection.Close();
             }
-         
-            CarRegister = new ObservableCollection<Car>(cars);
+
+            _CarRegister.Source = cars;
             SelectedCar = cars.First();
+            _CarRegister.Filter += OnCarsFiltered;
         }
+
+        
     }
 }

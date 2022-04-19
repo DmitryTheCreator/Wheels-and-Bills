@@ -51,7 +51,7 @@
                          VerticalAlignment="Center"
                          HorizontalAlignment="Left"
                          FontSize="18"
-                         Margin="15"                       
+                         Margin="15"
                          Style="{StaticResource ModernTextBox}">
                 </TextBox>
 
@@ -80,16 +80,14 @@
                 </StackPanel>
             </StackPanel>
 
-                <Border Grid.Row="1"                   
+            <Border Grid.Row="1"                   
                     Grid.Column="0">
-
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="DarkBlue" Offset="0.1"/>
                         <GradientStop Color="#E45826" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
-
 
                 <ListBox Background="Transparent"                            
                          BorderThickness="0"
@@ -106,7 +104,7 @@
                         Grid.Row="1"
                         Margin="20,0">
                 <Grid Grid.Column="1" 
-                      Grid.Row="1"                
+                      Grid.Row="1" 
                       VerticalAlignment="Top">
 
                     <Grid.ColumnDefinitions>
