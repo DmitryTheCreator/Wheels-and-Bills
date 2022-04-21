@@ -181,8 +181,6 @@ namespace Wheels_and_Bills.ViewModels
             _CarRegister.Source = cars;
             SelectedCar = cars.First();
             _CarRegister.Filter += OnCarsFiltered;
-        }
-
-        
+        }        
     }
 }
