@@ -1,11 +1,8 @@
-﻿using Wheels_and_Bills.Views.Windows;
-using Wheels_and_Bills.Infrastructure.Commands.Base;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using Wheels_and_Bills.Infrastructure.Commands.Base;
 using Microsoft.Data.Sqlite;
 using System;
 using System.IO;
+using System.Windows;
 
 namespace Wheels_and_Bills.Infrastructure.Commands
 {

@@ -15,8 +15,7 @@
     <None Remove="Resources\Icons\filter_icon.png" />
     <None Remove="Resources\Icons\gas-station_icon.png" />
     <None Remove="Resources\Icons\manual-transmission_icon.png" />
-    <None Remove="Resources\Images\Cars\renault-kaptur.jpg" />
-    <None Remove="Resources\Images\Cars\renault-logan.jpg" />
+    <None Remove="Resources\Images\team.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,8 +34,7 @@
     <Resource Include="Resources\Icons\filter_icon.png" />
     <Resource Include="Resources\Icons\gas-station_icon.png" />
     <Resource Include="Resources\Icons\manual-transmission_icon.png" />
-    <Resource Include="Resources\Images\Cars\renault-kaptur.jpg" />
-    <Resource Include="Resources\Images\Cars\renault-logan.jpg" />
+    <Resource Include="Resources\Images\team.png" />
   </ItemGroup>
 
   <ItemGroup>
