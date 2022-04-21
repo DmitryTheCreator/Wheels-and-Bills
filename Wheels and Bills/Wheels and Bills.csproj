@@ -39,4 +39,8 @@
     <Resource Include="Resources\Images\Cars\renault-logan.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

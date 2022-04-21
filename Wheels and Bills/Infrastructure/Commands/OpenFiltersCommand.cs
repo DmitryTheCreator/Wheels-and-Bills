@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Wheels_and_Bills.Views;
+﻿using Wheels_and_Bills.Views.Windows;
 using Wheels_and_Bills.Infrastructure.Commands.Base;
 
 namespace Wheels_and_Bills.Infrastructure.Commands
@@ -12,7 +9,7 @@ namespace Wheels_and_Bills.Infrastructure.Commands
 
         public override void Execute(object parameter)
         {
-            FiltersView filtersView = new FiltersView();
+            FiltersViewWindow filtersView = new FiltersViewWindow();
             filtersView.ShowDialog();
         }
     }
