@@ -26,9 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="DataBase\Auto.db">
-      <CopyToOutputDirectory></CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="DataBase\Auto.db" />
     <Resource Include="Resources\Fonts\Inter.ttf" />
     <Resource Include="Resources\Icons\car-engine_icon.png" />
     <Resource Include="Resources\Icons\car_icon.png" />
