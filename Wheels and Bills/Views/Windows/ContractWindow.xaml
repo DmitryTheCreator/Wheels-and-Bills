@@ -1,0 +1,73 @@
+﻿<Window x:Class="Wheels_and_Bills.Views.Windows.ContractWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Wheels_and_Bills.ViewModels"
+        xmlns:local="clr-namespace:Wheels_and_Bills.Views.Windows"
+        mc:Ignorable="d"
+        Title="ContractWindow" Height="1000" Width="740">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <InkCanvas>
+        <Image Source="/Resources/Images/Contract.png"
+               RenderOptions.BitmapScalingMode="HighQuality"
+               Height="1000"/>
+        <TextBlock Text="{Binding SelectedCar.Mark}"
+                   InkCanvas.Left="220"
+                   InkCanvas.Top="388"
+                   FontSize="16">
+        </TextBlock>
+        <TextBlock Text="{Binding SelectedCar.Model}"
+                   InkCanvas.Left="320"
+                   InkCanvas.Top="388"
+                   FontSize="16">
+        </TextBlock>
+        <TextBlock Text="{Binding SelectedCar.Category}"
+                   InkCanvas.Left="348"
+                   InkCanvas.Top="416"
+                   FontSize="16">
+        </TextBlock>
+        <TextBlock Text="{Binding SelectedCar.TypeOfCar}"
+                   InkCanvas.Left="240"
+                   InkCanvas.Top="445"
+                   FontSize="16">
+        </TextBlock>
+        <TextBlock Text="{Binding SelectedCar.RegistrationNumber}"
+                   InkCanvas.Left="560"
+                   InkCanvas.Top="445"
+                   FontSize="16">
+        </TextBlock>
+        <TextBlock Text="{Binding SelectedCar.IssueYear}"
+                   InkCanvas.Left="210"
+                   InkCanvas.Top="473"
+                   FontSize="16">
+        </TextBlock>
+        <TextBlock Text="{Binding SelectedCar.EngineType}"
+                   InkCanvas.Left="210"
+                   InkCanvas.Top="502"
+                   FontSize="16">
+        </TextBlock>
+        <TextBlock Text="{Binding SelectedCar.Transmission}"
+                   InkCanvas.Left="430"
+                   InkCanvas.Top="502"
+                   FontSize="16">
+        </TextBlock>
+        <TextBlock Text="{Binding SelectedCar.BodyShape}"
+                   InkCanvas.Left="210"
+                   InkCanvas.Top="531"
+                   FontSize="16">
+        </TextBlock>
+        <TextBlock Text="{Binding SelectedCar.Color}"
+                   InkCanvas.Left="430"
+                   InkCanvas.Top="531"
+                   FontSize="16">
+        </TextBlock>
+        <TextBlock Text="{Binding SelectedCar.Price}"
+                   InkCanvas.Left="230"
+                   InkCanvas.Top="577"
+                   FontSize="16">
+        </TextBlock>
+    </InkCanvas>
+</Window>
