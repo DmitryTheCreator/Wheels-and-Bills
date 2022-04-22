@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Wheels_and_Bills.Models
+﻿namespace Wheels_and_Bills.Models
 {
     internal class CarPhotos
     {
